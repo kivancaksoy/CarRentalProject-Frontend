@@ -1,0 +1,19 @@
+<table class="table">
+  <thead>
+    <th>Kiralamalar</th>
+    <tr>
+      <th>Id</th>
+      <th>Araba</th>
+      <th>Müşteri Adı</th>
+      <th>Kiralama Tarihi</th>
+      <th>Teslim Tarihi</th>
+    </tr>
+    <tr *ngFor="let rentalDetail of rentalDetails">
+      <td>{{ rentalDetail.rentalId }}</td>
+      <td>{{ rentalDetail.brandName }}</td>
+      <td>{{ rentalDetail.customerFirstName }} {{ rentalDetail.customerLastName }}</td>
+      <td>{{ rentalDetail.rentDate | date: "dd-MM-yyyy hh:mm" }}</td>
+      <td>{{ rentalDetail.returnDate | date: "dd-MM-yyyy hh:mm" }}</td>
+    </tr>
+  </thead>
+</table>
