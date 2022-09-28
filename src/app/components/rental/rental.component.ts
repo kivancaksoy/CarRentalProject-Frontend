@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Rental } from 'src/app/models/rental/rental';
-import { RentalDetail } from 'src/app/models/rental/rentalDetail';
+import { RentalDetailDto } from 'src/app/models/rental/rentalDetailDto';
 import { RentalService } from 'src/app/services/rentalService/rental.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { RentalService } from 'src/app/services/rentalService/rental.service';
 })
 export class RentalComponent implements OnInit {
   rentals: Rental[] = [];
-  rentalDetails: RentalDetail[] = [];
+  rentalDetails: RentalDetailDto[] = [];
   constructor(private rentalService: RentalService) {}
 
   ngOnInit(): void {

@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RentalResponseModel } from 'src/app/models/rental/rentalResponseModel';
-import { RentalDetailResponseModel } from 'src/app/models/rental/rentalDetailResponseModel';
+import { ListResponseModel } from 'src/app/models/listResponseModel';
+import { Rental } from 'src/app/models/rental/rental';
+import { RentalDetailDto } from 'src/app/models/rental/rentalDetailDto';
 
 @Injectable({
   providedIn: 'root',
@@ -11,13 +12,13 @@ export class RentalService {
   apiUrl = 'https://localhost:44324/api/';
   constructor(private httpClient: HttpClient) {}
 
-  getRentals(): Observable<RentalResponseModel> {
-    let newPath = this.apiUrl + "rentals/getall"
-    return this.httpClient.get<RentalResponseModel>(newPath);
+  getRentals(): Observable<ListResponseModel<Rental>> {
+    let newPath = this.apiUrl + 'rentals/getall';
+    return this.httpClient.get<ListResponseModel<Rental>>(newPath);
   }
 
-  getRentalDetails(): Observable<RentalDetailResponseModel> {
-    let newPath = this.apiUrl + "rentals/getrentaldetails"
-    return this.httpClient.get<RentalDetailResponseModel>(newPath);
+  getRentalDetails(): Observable<ListResponseModel<RentalDetailDto>> {
+    let newPath = this.apiUrl + 'rentals/getrentaldetails';
+    return this.httpClient.get<ListResponseModel<RentalDetailDto>>(newPath);
   }
 }
