@@ -1,10 +1,6 @@
-<thead>
-  <tr>
-    <th>Müşteriler</th>
-  </tr>
-  <ul class="list-group">
-    <li *ngFor="let customer of customers" class="list-group-item">
-      {{ customer.userId }} : {{ customer.companyName }}
-    </li>
-  </ul>
-</thead>
+<ul class="list-group">
+  <h5>Müşteriler</h5>
+  <li *ngFor="let customer of customers" class="list-group-item">
+    {{ customer.companyName }}
+  </li>
+</ul>

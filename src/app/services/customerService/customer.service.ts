@@ -7,10 +7,11 @@ import { CustomerResponseModel } from 'src/app/models/customer/customerResponseM
   providedIn: 'root',
 })
 export class CustomerService {
-  apiUrl = 'https://localhost:44324/api/customers/getall';
+  apiUrl = 'https://localhost:44324/api/';
   constructor(private httpClient: HttpClient) {}
-  
+
   getCustomers(): Observable<CustomerResponseModel> {
-    return this.httpClient.get<CustomerResponseModel>(this.apiUrl);
+    let newPath = this.apiUrl + 'customers/getall';
+    return this.httpClient.get<CustomerResponseModel>(newPath);
   }
 }

@@ -7,10 +7,11 @@ import { ColorResponseModel } from 'src/app/models/color/colorResponseModel';
   providedIn: 'root',
 })
 export class ColorService {
-  apiUrl = 'https://localhost:44324/api/colors/getall';
+  apiUrl = 'https://localhost:44324/api/';
   constructor(private httpClient: HttpClient) {}
-  
+
   getColors(): Observable<ColorResponseModel> {
-    return this.httpClient.get<ColorResponseModel>(this.apiUrl);
+    let newPath = this.apiUrl + 'colors/getall';
+    return this.httpClient.get<ColorResponseModel>(newPath);
   }
 }
