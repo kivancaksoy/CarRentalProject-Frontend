@@ -23,6 +23,8 @@ export class CarComponent implements OnInit {
     this.activatedRoute.params.subscribe((params) => {
       if (params['brandId']) {
         this.getCarDetailsByBrandId(params['brandId']);
+      } else if (params['colorId']) {
+        this.getCarDetailsByColorId(params['colorId']);
       } else {
         this.getCarDetails();
       }
@@ -50,5 +52,12 @@ export class CarComponent implements OnInit {
       this.carDetails = response.data;
       this.dataLoaded = true;
     });
+  }
+
+  getCarDetailsByColorId(colorId: number) {
+    this.carService
+      .getCarDetailsByColorId(colorId)
+      .subscribe((response) => (this.carDetails = response.data));
+    this.dataLoaded = true;
   }
 }
