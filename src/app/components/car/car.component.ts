@@ -12,6 +12,8 @@ import { CarService } from 'src/app/services/carService/car.service';
 export class CarComponent implements OnInit {
   cars: Car[] = [];
   carDetails: CarDetailDto[] = [];
+  currentCar: CarDetailDto;
+  defaultCar: CarDetailDto;
   dataLoaded = false;
 
   constructor(
@@ -25,6 +27,8 @@ export class CarComponent implements OnInit {
         this.getCarDetailsByBrandId(params['brandId']);
       } else if (params['colorId']) {
         this.getCarDetailsByColorId(params['colorId']);
+      } else if (params['carId']) {
+        this.getCarDetailsByCarId(params['carId']);
       } else {
         this.getCarDetails();
       }
@@ -59,5 +63,20 @@ export class CarComponent implements OnInit {
       .getCarDetailsByColorId(colorId)
       .subscribe((response) => (this.carDetails = response.data));
     this.dataLoaded = true;
+  }
+
+  getCarDetailsByCarId(carId: number) {
+    this.carService.getCarDetailsByCarId(carId).subscribe((response) => {
+      this.carDetails = response.data;
+      this.dataLoaded = true;
+    });
+  }
+
+  setCurrentCar(car: CarDetailDto) {
+    this.currentCar = car;
+  }
+
+  resetCurrentCar() {
+    this.currentCar = this.defaultCar;
   }
 }

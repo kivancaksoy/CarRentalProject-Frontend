@@ -19,7 +19,11 @@
         <th>Açıklama</th>
       </tr>
     </thead>
-    <tr *ngFor="let carDetail of carDetails">
+    <tr
+      *ngFor="let carDetail of carDetails"
+      routerLink="cars/cardetail/{{ carDetail.carId }}"
+      (click)="setCurrentCar(carDetail)"
+    >
       <td>{{ carDetail.carId }}</td>
       <td>{{ carDetail.carName }}</td>
       <td>{{ carDetail.brandName }}</td>

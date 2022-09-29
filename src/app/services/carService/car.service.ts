@@ -22,13 +22,26 @@ export class CarService {
     return this.httpClient.get<ListResponseModel<CarDetailDto>>(newPath);
   }
 
-  getCarDetailsByBrandId(brandId: number): Observable<ListResponseModel<CarDetailDto>> {
-    let newPath = this.apiUrl + 'cars/getcardetailsbybrandid?brandId=' + brandId;
+  getCarDetailsByBrandId(
+    brandId: number
+  ): Observable<ListResponseModel<CarDetailDto>> {
+    let newPath =
+      this.apiUrl + 'cars/getcardetailsbybrandid?brandId=' + brandId;
     return this.httpClient.get<ListResponseModel<CarDetailDto>>(newPath);
   }
 
-  getCarDetailsByColorId(colorId: number): Observable<ListResponseModel<CarDetailDto>> {
-    let newPath = this.apiUrl + 'cars/getcardetailsbycolorid?colorId=' + colorId;
+  getCarDetailsByColorId(
+    colorId: number
+  ): Observable<ListResponseModel<CarDetailDto>> {
+    let newPath =
+      this.apiUrl + 'cars/getcardetailsbycolorid?colorId=' + colorId;
+    return this.httpClient.get<ListResponseModel<CarDetailDto>>(newPath);
+  }
+
+  getCarDetailsByCarId(
+    carId: number
+  ): Observable<ListResponseModel<CarDetailDto>> {
+    let newPath = this.apiUrl + 'cars/getcardetailsbycarid?carId=' + carId;
     return this.httpClient.get<ListResponseModel<CarDetailDto>>(newPath);
   }
 }
