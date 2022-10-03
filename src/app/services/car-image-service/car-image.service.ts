@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ListResponseModel } from 'src/app/models/listResponseModel';
-import { CarImage } from 'src/app/models/carImage/carImage';
+import { CarImage } from 'src/app/models/car-image/carImage';
 
 @Injectable({
   providedIn: 'root',

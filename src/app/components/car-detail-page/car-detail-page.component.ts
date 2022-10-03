@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarDetailDto } from 'src/app/models/car/carDetailDto';
-import { CarImage } from 'src/app/models/carImage/carImage';
-import { CarImageService } from 'src/app/services/carImageService/carImage.service';
-import { CarService } from 'src/app/services/carService/car.service';
+import { CarImage } from 'src/app/models/car-image/carImage';
+import { CarImageService } from 'src/app/services/car-image-service/car-image.service';
+import { CarService } from 'src/app/services/car-service/car.service';
 
 @Component({
-  selector: 'app-carDetailPage',
-  templateUrl: './carDetailPage.component.html',
-  styleUrls: ['./carDetailPage.component.css'],
+  selector: 'app-car-detail-page',
+  templateUrl: './car-detail-page.component.html',
+  styleUrls: ['./car-detail-page.component.css'],
 })
 export class CarDetailPageComponent implements OnInit {
   carImages: CarImage[] = [];

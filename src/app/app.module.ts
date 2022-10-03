@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
-import { CarDetailPageComponent } from './components/carDetailPage/carDetailPage.component';
+import { CarDetailPageComponent } from './components/car-detail-page/car-detail-page.component';
 
 @NgModule({
   declarations: [

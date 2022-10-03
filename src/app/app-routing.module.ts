@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CarComponent } from './components/car/car.component';
-import { CarDetailPageComponent } from './components/carDetailPage/carDetailPage.component';
+import { CarDetailPageComponent } from './components/car-detail-page/car-detail-page.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: CarComponent },
