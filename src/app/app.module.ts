@@ -13,7 +13,7 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { CarDetailPageComponent } from './components/car-detail-page/car-detail-page.component';
 import { FilterCarPipePipe } from './pipes/filter-car-pipe.pipe';
-import { FilterBrandPipePipe } from './filter-brand-pipe.pipe';
+import { FilterBrandPipePipe } from './pipes/filter-brand-pipe.pipe';
 import { FilterColorPipePipe } from './pipes/filter-color-pipe.pipe';
 
 @NgModule({
