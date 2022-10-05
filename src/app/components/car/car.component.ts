@@ -15,6 +15,7 @@ export class CarComponent implements OnInit {
   currentCar: CarDetailDto;
   defaultCar: CarDetailDto;
   dataLoaded = false;
+  filterText = "";
 
   constructor(
     private carService: CarService,
