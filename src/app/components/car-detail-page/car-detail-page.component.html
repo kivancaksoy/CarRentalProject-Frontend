@@ -6,33 +6,8 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 <h2 align="center">Car Details</h2>
-<div>
-  <table *ngIf="dataLoaded == true" class="table">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Araba Adı</th>
-        <th>Marka</th>
-        <th>Renk</th>
-        <th>Model Yılı</th>
-        <th>Günlük Fiyat</th>
-        <th>Açıklama</th>
-      </tr>
-    </thead>
-    <tr *ngFor="let carDetail of carDetails">
-      <td>{{ carDetail.carId }}</td>
-      <td>{{ carDetail.carName }}</td>
-      <td>{{ carDetail.brandName }}</td>
-      <td>{{ carDetail.colorName }}</td>
-      <td>{{ carDetail.modelYear }}</td>
-      <td>{{ carDetail.dailyPrice }}</td>
-      <td>{{ carDetail.description }}</td>
-    </tr>
-  </table>
-</div>
-
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-12 mb-3">
     <div
       id="carouselExampleControls"
       class="carousel slide"
@@ -42,7 +17,7 @@
         <div *ngFor="let img of carImages" class="carousel-item active">
           <img
             src="https://localhost:44324/Uploads/Images/{{ img.imagePath }}"
-            height="300"
+            height="450"
             class="d-block w-100"
             alt="..."
           />
@@ -68,4 +43,31 @@
       </button>
     </div>
   </div>
+</div>
+
+<div>
+  <table *ngIf="dataLoaded == true" class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Araba Adı</th>
+        <th>Marka</th>
+        <th>Renk</th>
+        <th>Model Yılı</th>
+        <th>Günlük Fiyat</th>
+        <th>Açıklama</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let carDetail of carDetails">
+        <td>{{ carDetail.carId }}</td>
+        <td>{{ carDetail.carName }}</td>
+        <td>{{ carDetail.brandName }}</td>
+        <td>{{ carDetail.colorName }}</td>
+        <td>{{ carDetail.modelYear }}</td>
+        <td>{{ carDetail.dailyPrice }}</td>
+        <td>{{ carDetail.description }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
