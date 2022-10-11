@@ -1,15 +1,22 @@
 <ul class="list-group">
-  <li
-    (click)="resetCurrentBrand()"
-    [class]="getAllBrandClass()"
-    routerLink=""
-  >
+  <li (click)="resetCurrentBrand()" [class]="getAllBrandClass()" routerLink="">
     <h5>Tüm Markalar</h5>
   </li>
+
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="arama ifadesi giriniz"
+  />
+  <div class="alert alert-success" *ngIf="filterText.length > 0">
+    {{ filterText }} aradınız
+  </div>
   <li
     (click)="setCurrentBrand(brand)"
     routerLink="/cars/brand/{{ brand.id }}"
-    *ngFor="let brand of brands"
+    *ngFor="let brand of brands | filterBrandPipe: filterText"
     [class]="getCurrentBrandClass(brand)"
   >
     {{ brand.brandName }}

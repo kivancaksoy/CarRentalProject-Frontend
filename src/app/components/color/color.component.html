@@ -6,10 +6,21 @@
   >
     <h5>Tüm Renkler</h5>
   </li>
+
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="arama ifadesi giriniz"
+  />
+  <div class="alert alert-success" *ngIf="filterText.length > 0">
+    {{ filterText }} aradınız
+  </div>
   <li
     (click)="setCurrentColor(color)"
     [class]="getCurrentColorClass(color)"
-    *ngFor="let color of colors"
+    *ngFor="let color of colors | filterColorPipe: filterText"
     routerLink="/cars/color/{{ color.id }}"
   >
     {{ color.colorName }}
