@@ -16,6 +16,7 @@ import { ColorService } from 'src/app/services/color-service/color.service';
 export class CarComponent implements OnInit {
   cars: Car[] = [];
   carDetails: CarDetailDto[] = [];
+  carDetail: CarDetailDto;
   currentCar: CarDetailDto;
   defaultCar: CarDetailDto;
   dataLoaded = false;
@@ -81,7 +82,7 @@ export class CarComponent implements OnInit {
 
   getCarDetailsByCarId(carId: number) {
     this.carService.getCarDetailsByCarId(carId).subscribe((response) => {
-      this.carDetails = response.data;
+      this.carDetail = response.data;
       this.dataLoaded = true;
     });
   }
