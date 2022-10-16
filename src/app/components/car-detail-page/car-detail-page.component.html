@@ -56,6 +56,7 @@
         <th>Model Yılı</th>
         <th>Günlük Fiyat</th>
         <th>Açıklama</th>
+        <th>Kirala</th>
       </tr>
     </thead>
     <tbody>
@@ -67,6 +68,15 @@
         <td>{{ carDetail.modelYear }}</td>
         <td>{{ carDetail.dailyPrice }}</td>
         <td>{{ carDetail.description }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-success"
+            routerLink="/cars/rental/add"
+          >
+            Kiralamak için tıklayınız
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
