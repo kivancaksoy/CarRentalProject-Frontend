@@ -86,7 +86,7 @@
         <tbody>
           <tr
             *ngFor="let carDetail of carDetails | filterCarPipe: filterText"
-            routerLink="cars/cardetail/{{ carDetail.carId }}"
+            routerLink="/cars/cardetail/{{ carDetail.carId }}"
             (click)="setCurrentCar(carDetail)"
           >
             <td>{{ carDetail.carId }}</td>
