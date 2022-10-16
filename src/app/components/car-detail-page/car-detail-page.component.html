@@ -60,7 +60,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngIf="carDetail">
         <td>{{ carDetail.carId }}</td>
         <td>{{ carDetail.carName }}</td>
         <td>{{ carDetail.brandName }}</td>

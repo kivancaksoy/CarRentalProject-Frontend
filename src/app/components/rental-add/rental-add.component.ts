@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RentalService } from 'src/app/services/rental-service/rental.service';
 import { ToastrService } from 'ngx-toastr';
+import { RentalFieldTransferService } from 'src/app/services/rental-field-transfer-service/rental-field-transfer.service';
 
 @Component({
   selector: 'app-rental-add',
@@ -13,16 +14,19 @@ export class RentalAddComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private rentalService: RentalService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private rentalFieldTransferService: RentalFieldTransferService
   ) {}
 
   ngOnInit(): void {
     this.createRentalAddForm();
+    console.log(this.rentalFieldTransferService.getCarId())
+    console.log(this.rentalFieldTransferService.getCustomerId())
   }
   createRentalAddForm() {
     this.rentalAddForm = this.formBuilder.group({
-      carId: ['', Validators.required],
-      customerId: ['', Validators.required],
+      carId: [this.rentalFieldTransferService.getCarId(), Validators.required],
+      customerId: [this.rentalFieldTransferService.getCustomerId(), Validators.required],
       rentDate: ['', Validators.required],
       returnDate: ['', Validators.nullValidator],
     });
