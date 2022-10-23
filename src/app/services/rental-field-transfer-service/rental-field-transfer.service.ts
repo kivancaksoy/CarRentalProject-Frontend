@@ -1,29 +1,51 @@
 import { Injectable } from '@angular/core';
-import { Rental } from 'src/app/models/rental/rental';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RentalFieldTransferService {
-
-  constructor() { }
+  constructor() {}
   carId: number;
   customerId: number = 3;
+  rentalPrice: number = 100;
+  totalRentalPrice: number;
+  rentDate: Date;
+  returnDate: Date;
+
+  rentalModel: any;
 
   setCarId(carId: number) {
     this.carId = carId;
   }
 
-  setCustomerId(customerId: number){
+  setCustomerId(customerId: number) {
     this.customerId = customerId;
   }
 
-  getCarId(){
+  getCarId() {
     return Number(this.carId);
   }
 
-  getCustomerId(){
+  getCustomerId() {
     return this.customerId;
   }
 
+  setRentalModel(rentalAddForm: any){
+    this.rentalModel = Object.assign({}, rentalAddForm.value);
+  }
+
+  getRentalModel() {
+    return this.rentalModel;
+  }
+
+  setTotalRentalPrice(rentalModel: any) {
+    let days = Math.floor(
+      (new Date(rentalModel.value.returnDate).getTime() - new Date(rentalModel.value.rentDate).getTime()) / 1000 / 60 / 60 / 24
+    );
+    this.totalRentalPrice = this.rentalPrice * days;
+  }
+
+  getTotalRentalPrice() {
+    return this.totalRentalPrice;
+  }
 }

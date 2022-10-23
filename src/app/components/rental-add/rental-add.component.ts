@@ -11,6 +11,7 @@ import { RentalFieldTransferService } from 'src/app/services/rental-field-transf
 })
 export class RentalAddComponent implements OnInit {
   rentalAddForm: FormGroup;
+  routePayment: string;
   constructor(
     private formBuilder: FormBuilder,
     private rentalService: RentalService,
@@ -20,13 +21,14 @@ export class RentalAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.createRentalAddForm();
-    console.log(this.rentalFieldTransferService.getCarId())
-    console.log(this.rentalFieldTransferService.getCustomerId())
   }
   createRentalAddForm() {
     this.rentalAddForm = this.formBuilder.group({
       carId: [this.rentalFieldTransferService.getCarId(), Validators.required],
-      customerId: [this.rentalFieldTransferService.getCustomerId(), Validators.required],
+      customerId: [
+        this.rentalFieldTransferService.getCustomerId(),
+        Validators.required,
+      ],
       rentDate: ['', Validators.required],
       returnDate: ['', Validators.nullValidator],
     });
@@ -34,25 +36,15 @@ export class RentalAddComponent implements OnInit {
 
   add() {
     if (this.rentalAddForm.valid) {
-      let rentalModel = Object.assign({}, this.rentalAddForm.value);
-      this.rentalService.add(rentalModel).subscribe({
-        next: (response) => {
-          this.toastrService.success(response.message, 'Başarılı.');
-        },
-        error: (responseError) => {
-          console.log(responseError.error.Errors)
-          if (responseError.error.Errors.length > 0) {
-            for (let i = 0; i < responseError.error.Errors.length; i++) {
-              this.toastrService.error(
-                responseError.error.Errors[i].ErrorMessage,
-                'Doğrulama Hatası.'
-              );
-            }
-          }
-        },
-      });
+      this.routePayment = '/payment';
+      this.rentalFieldTransferService.setRentalModel(this.rentalAddForm);
+      this.rentalFieldTransferService.setTotalRentalPrice(this.rentalAddForm);
     } else {
       this.toastrService.error('Formunuz eksik', 'Dikkat.');
     }
+  }
+
+  getRoutePayment() {
+    return this.routePayment;
   }
 }
