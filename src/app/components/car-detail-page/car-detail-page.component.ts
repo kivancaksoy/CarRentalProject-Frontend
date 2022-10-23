@@ -44,6 +44,7 @@ export class CarDetailPageComponent implements OnInit {
       this.carDetail = response.data;
       this.dataLoaded = true;
       this.rentalFieldTransferService.setCarId(carId)
+      this.rentalFieldTransferService.setRentalPrice(this.carDetail.dailyPrice);
     });
   }
 }
