@@ -5,6 +5,9 @@ import { CarDetailPageComponent } from './components/car-detail-page/car-detail-
 import { RentalAddComponent } from './components/rental-add/rental-add.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
+import { CarAddComponent } from './components/car-add/car-add.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: CarComponent },
@@ -16,6 +19,9 @@ const routes: Routes = [
   { path: 'cars/rental/add', component: RentalAddComponent },
   { path: 'cars/rentals', component: RentalComponent },
   { path: 'payment', component: PaymentComponent },
+  { path: 'brands/add', component: BrandAddComponent},
+  { path: 'colors/add', component: ColorAddComponent},
+  { path: 'cars/add', component: CarAddComponent}
 ];
 
 @NgModule({
