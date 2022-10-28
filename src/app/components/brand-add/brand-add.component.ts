@@ -34,8 +34,8 @@ export class BrandAddComponent implements OnInit {
           this.toastrService.success(response.message, 'Başarılı');
         },
         error: (responseError) => {
-          if (responseError.error.Errors.lenght > 0) {
-            for (let i = 0; i < responseError.error.Errors.lenght; i++) {
+          if (responseError.error.Errors.length > 0) {
+            for (let i = 0; i < responseError.error.Errors.length; i++) {
               this.toastrService.error(
                 responseError.error.Errors[i].ErrorMessage,
                 'Doğrulama hatası'

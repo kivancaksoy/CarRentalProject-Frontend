@@ -47,13 +47,16 @@ export class PaymentComponent implements OnInit {
           this.add();
         },
         error: (responseError) => {
-          if (responseError.error.Errors.length > 0) {
+          if (responseError.error.Errors) {
             for (let i = 0; i < responseError.error.Errors.length; i++) {
+              
               this.toastrService.error(
                 responseError.error.Errors[i].ErrorMessage,
                 'Doğrulama hatası, Kredi KArtı'
               );
             }
+          } else {
+            this.toastrService.error(responseError.error.message)
           }
         },
       });
@@ -71,14 +74,16 @@ export class PaymentComponent implements OnInit {
         this.toastrService.success(response.message, 'Başarılı.');
       },
       error: (responseError) => {
-        console.log(responseError.error.Errors)
-        if (responseError.error.Errors.length > 0) {
+        console.log(responseError)
+        if (responseError.error.Errors) {
           for (let i = 0; i < responseError.error.Errors.length; i++) {
             this.toastrService.error(
               responseError.error.Errors[i].ErrorMessage,
-              'Doğrulama Hatası. Kiralama.'
+              'Doğrulama Hatası.'
             );
           }
+        } else {
+          this.toastrService.error(responseError.error.message)
         }
       },
     });
